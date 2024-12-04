@@ -16,28 +16,28 @@ namespace Day4
             Console.WriteLine("In the shelter we currently have:");
             //a.Hur många hundar(1 siffra)
 
-            var answerA = availableAnimals.Count(a => a.AnimalType == AnimalType.Dog);
-            Console.WriteLine($"\n{answerA} number of dogs.");
+            var amtOfDogs = availableAnimals.Count(a => a.AnimalType == AnimalType.Dog);
+            Console.WriteLine($"\n{amtOfDogs} number of dogs.");
 
 
             //b.Äldsta djur(1 Animal)
 
-            var answerB = availableAnimals.OrderBy(a => a.Age).Last();
-            Console.WriteLine($"\nThe oldest animal is a {answerB.AnimalType} and is {answerB.Age}");
+            var oldestAnimal = availableAnimals.OrderBy(a => a.Age).Last();
+            Console.WriteLine($"\nThe oldest animal is a {oldestAnimal.AnimalType} and is {oldestAnimal.Age}");
 
             //c.Vaccinerade djur(List)
 
-            var answerC = availableAnimals.Where(a => a.IsVaccinated).ToList();
+            var vaccinatedAnimals = availableAnimals.Where(a => a.IsVaccinated).ToList();
             Console.WriteLine("\nThe animals that are vaccinated are:");
-            foreach (var a in answerC)
+            foreach (var a in vaccinatedAnimals)
                 Console.WriteLine(a.Name);
 
 
             //d. 4 ben över 3 år gamla(List)
 
-            var answerD = availableAnimals.Where(a => a.AmtOfLegs == 4 && a.Age > 3).ToList();
+            var fourLeggedAnimalsAboveThreeYears = availableAnimals.Where(a => a.AmtOfLegs == 4 && a.Age > 3).ToList();
             Console.WriteLine("\nThe animals that are above 3 years with 4 legs are:");
-            foreach (var a in answerD)
+            foreach (var a in fourLeggedAnimalsAboveThreeYears)
                 Console.WriteLine(a.Name);
 
             //e.Finns ett djur som heter Shadow(Bool)
